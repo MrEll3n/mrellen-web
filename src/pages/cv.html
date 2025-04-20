@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vít Novotný - CV</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Inter", sans-serif;
+            }
+
+            body {
+                max-width: 21cm;
+                margin: 0 auto;
+                padding: 25px;
+                color: #e2e8f0;
+                line-height: 1.6;
+                background-color: #0f172a;
+            }
+
+            .header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 35px;
+                position: relative;
+                padding-bottom: 20px;
+            }
+
+            .header:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(
+                    to right,
+                    #6366f1,
+                    #8b5cf6,
+                    #d946ef
+                );
+            }
+
+            .initials {
+                font-size: 32px;
+                font-weight: 700;
+                color: #ffffff;
+                background: linear-gradient(
+                    135deg,
+                    #6366f1 0%,
+                    #8b5cf6 50%,
+                    #d946ef 100%
+                );
+                width: 80px;
+                height: 80px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 25px;
+                box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            }
+
+            .header-content h1 {
+                color: #ffffff;
+                margin: 0;
+                font-size: 28px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+
+            .header-content h2 {
+                color: #94a3b8;
+                margin: 0;
+                font-size: 18px;
+                font-weight: 500;
+                text-transform: uppercase;
+                margin-top: 5px;
+                letter-spacing: 1px;
+                background: linear-gradient(90deg, #6366f1, #d946ef);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .contact-info {
+                margin-top: 12px;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .contact-item {
+                margin-right: 20px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+                font-size: 14px;
+                color: #cbd5e1;
+            }
+
+            .contact-item a {
+                color: #93c5fd;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            .contact-item a:hover {
+                color: #bfdbfe;
+                text-decoration: underline;
+            }
+
+            .main-content {
+                display: flex;
+                margin-top: 25px;
+            }
+
+            .sidebar {
+                width: 32%;
+                padding-right: 25px;
+            }
+
+            .main {
+                width: 68%;
+                padding-left: 25px;
+                border-left: 1px solid #334155;
+            }
+
+            .section {
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 18px;
+                font-weight: 600;
+                color: #f1f5f9;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                display: flex;
+                align-items: center;
+            }
+
+            .section-title:before {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 16px;
+                background: linear-gradient(to bottom, #6366f1, #d946ef);
+                margin-right: 10px;
+                border-radius: 3px;
+            }
+
+            .skill-item {
+                margin-bottom: 12px;
+            }
+
+            .skill-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+            }
+
+            .skill-name {
+                font-weight: 500;
+                color: #f1f5f9;
+            }
+
+            .skill-level {
+                color: #94a3b8;
+                font-size: 12px;
+            }
+
+            .skill-bar {
+                height: 6px;
+                width: 100%;
+                background-color: #1e293b;
+                border-radius: 3px;
+                overflow: hidden;
+            }
+
+            .skill-progress {
+                height: 100%;
+                border-radius: 3px;
+                background: linear-gradient(90deg, #6366f1, #8b5cf6, #d946ef);
+            }
+
+            .language-item {
+                margin-bottom: 16px;
+            }
+
+            .language-name {
+                font-weight: 500;
+                color: #f1f5f9;
+                margin-bottom: 4px;
+            }
+
+            .language-level {
+                color: #94a3b8;
+                font-size: 13px;
+            }
+
+            .language-bar {
+                height: 6px;
+                width: 100%;
+                background-color: #1e293b;
+                border-radius: 3px;
+                margin-top: 5px;
+                overflow: hidden;
+            }
+
+            .language-progress {
+                height: 100%;
+                border-radius: 3px;
+                background: linear-gradient(90deg, #6366f1, #8b5cf6, #d946ef);
+            }
+
+            .mother-tongue {
+                width: 100%;
+            }
+
+            .c1-level {
+                width: 85%;
+            }
+
+            .b2-level {
+                width: 70%;
+            }
+
+            .p95 {
+                width: 95%;
+            }
+            .p90 {
+                width: 90%;
+            }
+            .p85 {
+                width: 85%;
+            }
+            .p80 {
+                width: 80%;
+            }
+            .p75 {
+                width: 75%;
+            }
+            .p70 {
+                width: 70%;
+            }
+
+            .education-item {
+                margin-bottom: 25px;
+                padding-left: 20px;
+                border-left: 2px solid rgba(99, 102, 241, 0.4);
+                position: relative;
+            }
+
+            .education-item:before {
+                content: "";
+                position: absolute;
+                left: -7px;
+                top: 0;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #6366f1, #d946ef);
+                box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            }
+
+            .education-title {
+                font-weight: 600;
+                margin-bottom: 5px;
+                color: #f1f5f9;
+            }
+
+            .education-institution {
+                font-weight: 500;
+                margin-bottom: 5px;
+                color: #cbd5e1;
+            }
+
+            .education-date {
+                color: #94a3b8;
+                margin-bottom: 5px;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+            }
+
+            .education-date:before {
+                content: "📅";
+                margin-right: 5px;
+                font-size: 12px;
+            }
+
+            .project-item {
+                margin-bottom: 25px;
+                padding: 18px;
+                border-radius: 12px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(15, 23, 42, 0.9) 0%,
+                    rgba(30, 41, 59, 0.9) 100%
+                );
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+                backdrop-filter: blur(5px);
+            }
+
+            .project-placeholder {
+                color: #94a3b8;
+                font-style: italic;
+            }
+
+            .cert-item {
+                margin-bottom: 16px;
+                padding: 15px;
+                border-radius: 10px;
+                background: rgba(30, 41, 59, 0.4);
+                border: 1px solid rgba(99, 102, 241, 0.2);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cert-item:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(to bottom, #6366f1, #d946ef);
+            }
+
+            .cert-name {
+                font-weight: 500;
+                color: #f1f5f9;
+                margin-bottom: 4px;
+            }
+
+            .cert-date {
+                color: #94a3b8;
+                font-size: 13px;
+            }
+
+            .interest-list {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .interest-item {
+                display: inline-flex;
+                align-items: center;
+                background: linear-gradient(
+                    135deg,
+                    rgba(30, 41, 59, 0.7) 0%,
+                    rgba(51, 65, 85, 0.7) 100%
+                );
+                color: #cbd5e1;
+                padding: 8px 16px;
+                border-radius: 30px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                font-size: 13px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+            }
+
+            .interest-item:before {
+                content: "❖";
+                margin-right: 6px;
+                background: linear-gradient(90deg, #6366f1, #d946ef);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                font-size: 14px;
+            }
+
+            .update-date {
+                margin-top: 40px;
+                color: #64748b;
+                font-size: 12px;
+                text-align: right;
+                font-style: italic;
+            }
+
+            @media print {
+                body {
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                    background-color: #0f172a !important;
+                    color: #e2e8f0 !important;
+                }
+
+                .main-content {
+                    page-break-inside: avoid;
+                }
+
+                .project-item,
+                .education-item,
+                .cert-item {
+                    page-break-inside: avoid;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="initials">VN</div>
+            <div class="header-content">
+                <h1>Vít Novotný</h1>
+                <h2>Softwarový inženýr</h2>
+                <div class="contact-info">
+                    <div class="contact-item">📍 Plzeň</div>
+                    <div class="contact-item">📞 606 180 216</div>
+                    <div class="contact-item">
+                        ✉
+                        <a href="mailto:vi.novotny@outlook.cz"
+                            >vi.novotny@outlook.cz</a
+                        >
+                    </div>
+                    <div class="contact-item">
+                        🔗
+                        <a
+                            href="https://www.linkedin.com/in/vit-novotny/"
+                            target="_blank"
+                            >LinkedIn: Vít Novotný</a
+                        >
+                    </div>
+                    <div class="contact-item">
+                        💻
+                        <a href="https://github.com/MrEll3n" target="_blank"
+                            >GitHub: MrEll3n</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h3 class="section-title">Dovednosti</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">VueJS</div>
+                            <div class="skill-level">90%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-level">95%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p95"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">TypeScript</div>
+                            <div class="skill-level">85%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-level">90%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">PHP</div>
+                            <div class="skill-level">80%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p80"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">OOP</div>
+                            <div class="skill-level">85%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">C</div>
+                            <div class="skill-level">75%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">SQL</div>
+                            <div class="skill-level">80%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p80"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">C#</div>
+                            <div class="skill-level">70%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p70"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-level">75%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-level">70%</div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress p70"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Jazyky</h3>
+                    <div class="language-item">
+                        <div class="language-name">Čeština</div>
+                        <div class="language-level">Mateřský jazyk</div>
+                        <div class="language-bar">
+                            <div class="language-progress mother-tongue"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Angličtina</div>
+                        <div class="language-level">C1</div>
+                        <div class="language-bar">
+                            <div class="language-progress c1-level"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Němčina</div>
+                        <div class="language-level">B2</div>
+                        <div class="language-bar">
+                            <div class="language-progress b2-level"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Zájmy</h3>
+                    <div class="interest-list">
+                        <div class="interest-item">Hudba</div>
+                        <div class="interest-item">Hlasové herectví</div>
+                        <div class="interest-item">Deskové hry</div>
+                        <div class="interest-item">Kondiční cvičení</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main">
+                <div class="section">
+                    <h3 class="section-title">Vzdělání</h3>
+                    <div class="education-item">
+                        <div class="education-title">
+                            Informatika - Počítačové vědy, bakalářský program
+                        </div>
+                        <div class="education-institution">
+                            Západočeská univerzita v Plzni, Fakulta aplikovaných
+                            věd
+                        </div>
+                        <div class="education-date">09/2023 – současnost</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Projekty</h3>
+                    <div class="project-item">
+                        <div class="project-placeholder">
+                            <em>Doplníme později</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Kurzy a certifikace</h3>
+                    <div class="cert-item">
+                        <div class="cert-name">
+                            CCNA: Introduction to Networks
+                        </div>
+                        <div class="cert-date">2022</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">
+                            CCNA: Switching, Routing, and Wireless Essentials
+                        </div>
+                        <div class="cert-date">2022</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">
+                            CCNA: Enterprise Networking, Security, and
+                            Automation
+                        </div>
+                        <div class="cert-date">2022</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-date">Datum poslední aktualizace: 19.04.2025</div>
+    </body>
+</html>
