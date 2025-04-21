@@ -1,32 +1,95 @@
----
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
----
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>MRELLEN</title>
+    </head>
+    <body>
+        <div id="container">
+            <!-- vibrant blurry animated gradient -->
+            <div class="animated-gradient"></div>
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-				<h1>MRELLEN</h1>
-			</h1>
-		</section>
-	</main>
-</div>
+            <main>
+                <section id="hero">
+                    <h1>MRELLEN</h1>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
 
 <style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
+    html,
+    body,
+    #container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "Poppins", sans-serif;
+        background-color: #0a0a0f;
+        color: #ffffff;
+        overflow: hidden;
+        position: relative;
+    }
 
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
+    .animated-gradient {
+        position: fixed;
+        top: -20%;
+        left: -20%;
+        width: 160%;
+        height: 160%;
+        z-index: -1;
+        background:
+            radial-gradient(circle at 20% 30%, #5c00ff, transparent 40%),
+            radial-gradient(circle at 80% 70%, #007acc, transparent 50%),
+            radial-gradient(circle at 50% 50%, #3f0071, transparent 50%);
+        filter: blur(120px);
+        animation: shift 20s ease-in-out infinite;
+    }
+
+    @keyframes shift {
+        0% {
+            transform: scale(1) translate(0, 0);
+        }
+        50% {
+            transform: scale(1.1) translate(2%, 2%);
+        }
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        z-index: 1;
+        position: relative;
+        padding: 0 1rem;
+    }
+
+    #hero {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 3rem 4rem;
+        border-radius: 1.25rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        text-align: center;
+    }
+
+    #hero h1 {
+        font-size: 5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+        margin: 0;
+    }
 </style>
