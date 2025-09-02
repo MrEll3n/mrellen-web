@@ -1,0 +1,28 @@
+name: Deploy via WebDAV (stable)
+
+on:
+  push:
+    branches: [ stable ]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_PATH: "dist"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload WebDAV
+        uses: bxb100/action-upload-webdav@v0.0.6
+        with:
+          webdav_address: ${{ secrets.WEBDAV_ADDRESS }}
+          webdav_username: ${{ secrets.WEBDAV_USERNAME }}
+          webdav_password: ${{ secrets.WEBDAV_PASSWORD }}
+          webdav_upload_path: ${{ secrets.WEBDAV_UPLOAD_PATH }}
+          # nahraj vše ze složky SOURCE_PATH
+          files: |
+            ${{ env.SOURCE_PATH }}/**
+          keep_structure: true
+          fail_on_unmatched_files: false
