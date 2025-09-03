@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "mrellen-web",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
-    "astro": "5.7.4",
+    "astro": "5.13.5",
     "tailwindcss": "^4.1.4"
   }
 }
